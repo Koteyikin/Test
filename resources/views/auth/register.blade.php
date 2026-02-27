@@ -74,7 +74,7 @@
             </form>
 
             <div class="mt-6 text-sm text-center text-gray-500 dark:text-gray-400">
-                Already have an account? <a href="#" class="font-medium text-teal-600 hover:underline dark:text-teal-500">Sign in</a>
+                Already have an account? <a href="{{ route('login') }}" class="font-medium text-teal-600 hover:underline dark:text-teal-500">Sign in</a>
             </div>
         </div>
     </div>

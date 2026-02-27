@@ -42,7 +42,8 @@
                         </div>
                     </div>
 
-                    <form class="mt-6 space-y-4" action="{{ route('login.store') }}" method="POST">
+                    <form class="mt-6 space-y-4" action="{{ route('login') }}" method="POST">
+                        @csrf
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700">
                                 Email address
@@ -96,6 +97,15 @@
                                 Sign in
                             </button>
                         </div>
+                        @if ($errors->any())
+                            <div>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

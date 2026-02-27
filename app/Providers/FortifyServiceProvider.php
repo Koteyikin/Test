@@ -13,6 +13,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\RegisterViewResponse as RegisterViewResponseContract;
+//use App\Http\Responses\RegisterViewResponse;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -21,7 +24,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+//        $this->app->singleton(RegisterViewResponseContract::class, RegisterViewResponse::class);
     }
 
     /**
@@ -45,10 +48,10 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
         Fortify::registerView(function () {
-            return view('register');
+            return view('auth.register');
         });
         Fortify::loginView(function () {
-            return view('login');
+            return view('auth.login');
         });
     }
 }
