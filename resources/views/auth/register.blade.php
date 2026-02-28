@@ -27,8 +27,9 @@
 {{--                </div>--}}
 {{--            </div>--}}
 
-            <form class="space-y-4" action="{{ route("register") }}" method="POST">
+            <form class="space-y-4" action="{{ route("register") }}" method="post">
                 @csrf
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Full Name</label>
                     <div class="mt-1">

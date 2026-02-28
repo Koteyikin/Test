@@ -5,7 +5,6 @@
 @section('body')
 
 
-
     Test words
 
     <div>

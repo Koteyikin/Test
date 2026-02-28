@@ -13,12 +13,12 @@ class UserController extends Controller
 
     public function createUser(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'device_name' => ['sometimes', 'string'],
-        ]);
+//        $request->validate([
+//            'name' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//            'device_name' => ['sometimes', 'string'],
+//        ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -35,15 +35,16 @@ class UserController extends Controller
             'token' => $token,
             'message' => 'User registered successfully'
         ], 201);
+
     }
 
     public function loginUser(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-            'device_name' => 'sometimes|string',
-        ]);
+//        $request->validate([
+//            'email' => 'required|email',
+//            'password' => 'required',
+//            'device_name' => 'sometimes|string',
+//        ]);
 
         $user = User::where('email', $request->email)->first();
 

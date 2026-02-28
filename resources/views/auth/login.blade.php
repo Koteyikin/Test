@@ -42,8 +42,9 @@
                         </div>
                     </div>
 
-                    <form class="mt-6 space-y-4" action="{{ route('login') }}" method="POST">
+                    <form class="mt-6 space-y-4" action="{{ route('login') }}" method="post">
                         @csrf
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700">
                                 Email address
